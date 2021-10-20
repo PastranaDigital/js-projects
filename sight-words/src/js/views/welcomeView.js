@@ -86,12 +86,12 @@ class WelcomeView extends View {
 		return `
 			<div id="overlay" class="active">
 				<div id="title">
-					<h1>Trivia Game</h1>
+					<h1>Sight Words</h1>
 				</div>
 			</div>
 			<div class="modal active" id="modal">
 				<div id="questionamt" class="modal-body">
-					<h1>How many questions for this game?</h1>
+					<h1>How many words for this game?</h1>
 
 					<!-- https://codepen.io/viestursm/pen/mdJeKVw -->
 					<form action="javascript:void(0);">
@@ -104,8 +104,8 @@ class WelcomeView extends View {
 							<div class="number-input">
 								<input
 									type="number"
-									id="questions"
-									name="questions"
+									id="words"
+									name="words"
 									class="number-input-text-box"
 									value="10"
 									min="5"

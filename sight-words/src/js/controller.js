@@ -10,7 +10,7 @@ const controlTotals = function () {
 };
 
 const controlQuestion = function () {
-	shuffleArray(model.state.questionBank[model.state.totals.currentQuestion - 1].answers);
+	// shuffleArray(model.state.questionBank[model.state.totals.currentQuestion - 1].answers);
 	questionView.render(model.state.questionBank[model.state.totals.currentQuestion - 1]);
 };
 

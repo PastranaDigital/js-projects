@@ -18,22 +18,19 @@ class QuestionView extends View {
 	_generateMarkup() {
 		return `
 			<div id="question">
-				${this._data.question}
-			</div>
-			<div class="answer-wrapper">
-			${this._data.answers.map(this._generateMarkupAnswer).join('')}
+				${this._data}
 			</div>
 		`;
 	}
 
-	_generateMarkupAnswer(ans) {
-		ans = ans.split('@');
-		return `
-			<div class="answers">
-				<p data-answer='${ans[1] ? ans[1] : 'false'}'>${ans[0]}<p>
-			</div>
-		`;
-	}
+	// _generateMarkupAnswer(ans) {
+	// 	ans = ans.split('@');
+	// 	return `
+	// 		<div class="answers">
+	// 			<p data-answer='${ans[1] ? ans[1] : 'false'}'>${ans[0]}<p>
+	// 		</div>
+	// 	`;
+	// }
 }
 
 export default new QuestionView();

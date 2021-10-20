@@ -7,14 +7,53 @@
 	box-sizing: border-box;
 }
 
-#totals {
+/* #totals {
 	position: absolute;
 	top: 10px;
-	right: 30px; /* Styling of the total counter */
+	right: 30px;
 	line-height: 5px;
 	font-family: 'Roboto', sans-serif;
 	font-size: 1rem;
 	color: var(--color-light);
+} */
+
+#totals {
+	font-family: 'Roboto', sans-serif;
+	/*   position: absolute; */
+	/*   top: 0.75rem; */
+	/*   right: 2rem; */
+	/*   line-height: 0.25rem; */
+	color: #ffffff;
+
+	position: fixed;
+	top: 0rem;
+	right: 0;
+	left: 0;
+	/*   width: 14rem; */
+	/*   height: 4rem; */
+	padding: 1rem 2rem;
+	background: var(--color-dark-text);
+	text-align: right;
+	justify-content: center;
+	box-shadow: 0px 0px 15px rgba(var(--color-dark-1-rgb), var(--box-shadow-opacity));
+}
+
+table {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.table-heading {
+	color: var(--color-background-gradient-1);
+}
+
+.table-body {
+	font-size: 1.5rem;
+}
+
+td {
+	width: 8ch;
+	text-align: center;
 }
 
 /* Styling of the question box */
@@ -97,12 +136,84 @@
 }
 
 /* Supposed to change size of elements based on pixel size - not working yet */
-@media only screen and (max-width: 1250px) {
+/* @media only screen and (max-width: 1250px) {
 	.answers {
 		width: 100%;
 		margin: auto;
 		margin-top: 1rem;
 		padding-top: 1rem;
 		padding-bottom: 1rem;
+	}
+} */
+
+@media (max-width: 1000px) {
+	#overlay #title {
+		padding-top: 12rem;
+		font-size: 4rem;
+	}
+
+	.modal {
+		width: 80%;
+		height: 50%;
+		border-radius: 3rem;
+	}
+
+	.question-wrapper {
+		box-shadow: 4px 8px 24px rgba(var(--color-dark-1-rgb), var(--box-shadow-opacity));
+	}
+
+	#numofquestions {
+		font-size: 2.5rem;
+	}
+
+	.modal-body {
+		font-size: 2.5rem;
+	}
+
+	input[type='number'] {
+		font-size: 6rem;
+		height: auto;
+	}
+
+	.number-button::after {
+		width: 3.5rem;
+	}
+
+	.modal-footer .start-button {
+		font-size: 3rem;
+		border-radius: 2rem;
+		width: 50%;
+		padding: 2rem 4rem;
+	}
+
+	form {
+		margin-top: 6rem;
+		padding: 1.5rem;
+		width: 85%;
+		font-size: 4rem;
+		border: 4px solid var(--color-background-gradient-2);
+		border-radius: 2rem;
+	}
+
+	.button-decrement::after {
+		background-image: var(--svg-url-minus-mobile);
+	}
+
+	.button-increment::after {
+		background-image: var(--svg-url-plus-mobile);
+	}
+
+	#question {
+		font-size: 9rem;
+		padding: 3rem 0;
+	}
+
+	#totals {
+		font-size: 2.5rem;
+		padding: 2rem 0;
+	}
+
+	.table-body {
+		font-size: 2.5rem;
 	}
 }
