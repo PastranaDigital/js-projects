@@ -122,7 +122,7 @@ class WelcomeView extends View {
 					</form>
 				</div>
 				<div class="modal-footer">
-					<button data-start-button class="start-button">GO</button>
+					<button data-start-button class="start-button">BEGIN</button>
 				</div>
 			</div>
 		`;
