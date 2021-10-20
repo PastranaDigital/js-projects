@@ -1,0 +1,12 @@
+:root {
+	/* --color-background-gradient-1: #6250d1; */
+	/* --color-background-gradient-2: #7038af; */
+	--color-background-gradient-1: #5057ff;
+	--color-background-gradient-2: #371fa3;
+	--color-dark-1-rgb: 0, 0, 0;
+	--color-dark-1: #000000;
+	--color-light: #ffffff;
+	--color-dark-text: #1d1e22;
+	--color-light-text: #ffffff;
+	--box-shadow-opacity: 0.35;
+}
