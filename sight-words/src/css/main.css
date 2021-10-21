@@ -105,21 +105,21 @@
 }
 
 .correct:hover {
-	background: var(--color-button-correct);
+	/* background: var(--color-button-correct); */
 	box-shadow: none;
 }
 
 .wrong:hover {
-	background: var(--color-button-wrong);
+	/* background: var(--color-button-wrong); */
 	box-shadow: none;
 }
 
 .correct {
-	background: linear-gradient(150deg, var(--color-button-correct), var(--color-dark-text));
+	background: var(--color-button-correct);
 }
 
 .wrong {
-	background: linear-gradient(150deg, var(--color-button-wrong), var(--color-dark-text));
+	background: var(--color-button-wrong);
 }
 
 .question-wrapper.active {
