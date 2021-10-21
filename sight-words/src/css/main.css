@@ -163,6 +163,11 @@
 	left: 0;
 }
 
+.endgame-score {
+	padding-top: 2rem;
+	font-size: 4rem;
+}
+
 /* Supposed to change size of elements based on pixel size - not working yet */
 /* @media only screen and (max-width: 1250px) {
 	.answers {
@@ -184,6 +189,11 @@
 		width: 80%;
 		height: 50%;
 		border-radius: 3rem;
+	}
+
+	.endgame-score {
+		padding-top: 6rem;
+		font-size: 8rem;
 	}
 
 	.question-block {

@@ -9,6 +9,14 @@ export const updateNumOfQuestions = function (newNumber) {
 	// console.log('state.totals.totalSelectedQuestions: ', state.totals.totalSelectedQuestions);
 };
 
+export const updateTotals = function (value) {
+	state.totals.correctAnswers += value;
+};
+
+export const advanceCurrentNumber = function () {
+	state.totals.currentQuestion++;
+};
+
 export const state = {
 	totals: {
 		correctAnswers: 0,

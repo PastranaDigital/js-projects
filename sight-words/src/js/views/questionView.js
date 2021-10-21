@@ -15,6 +15,17 @@ class QuestionView extends View {
 		window.addEventListener('load', (e) => handler());
 	}
 
+	addHandlerAnswerClick(handler) {
+		const buttons = document.querySelector('.button-wrapper');
+		buttons.addEventListener('click', function (e) {
+			const btn = e.target.closest('.answers'); //? search the DOM
+			if (!btn) return;
+			// console.log(+btn.dataset.value);
+			// console.log('Answer click');
+			handler(+btn.dataset.value);
+		});
+	}
+
 	_generateMarkup() {
 		return `
 			<div id="question">

@@ -1,5 +1,6 @@
 import * as model from './model.js';
 import welcomeView from './views/welcomeView.js';
+import endgameView from './views/endgameView.js';
 import totalsView from './views/totalsView.js';
 import questionView from './views/questionView.js';
 import numberOfQuestionsView from './views/numberOfQuestionsView.js';
@@ -63,6 +64,35 @@ const controlWelcomeGoClick = function (payload) {
 	renderQuiz();
 };
 
+const controlEndgame = function () {
+	questionView.toggleActiveClass();
+	endgameView.render(model.state.totals);
+	// endgameView.toggleActiveClass();
+};
+
+const controlAnswerClick = function (value) {
+	// console.log('inside control', value);
+
+	//? increase the score and correct by the value
+	model.updateTotals(value);
+
+	//? check that we are not on the last question
+	//? update the model current number
+	model.advanceCurrentNumber();
+	//? render the updated totals
+	controlTotals();
+
+	if (model.state.totals.currentQuestion <= model.state.totals.totalSelectedQuestions) {
+		//? render the num of questions
+		controlNumberOfQuestions();
+		//? render next word
+		controlQuestion();
+	} else {
+		controlEndgame();
+		// alert('End of quiz');
+	}
+};
+
 const renderQuiz = function () {
 	// console.log(model.state);
 	model.shuffleQuestionOrder();
@@ -70,6 +100,8 @@ const renderQuiz = function () {
 	controlTotals();
 	controlQuestion();
 	controlNumberOfQuestions();
+
+	questionView.addHandlerAnswerClick(controlAnswerClick);
 };
 
 const init = function () {
