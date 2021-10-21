@@ -4,7 +4,6 @@ import endgameView from './views/endgameView.js';
 import totalsView from './views/totalsView.js';
 import questionView from './views/questionView.js';
 import numberOfQuestionsView from './views/numberOfQuestionsView.js';
-import { shuffleArray } from './helper.js';
 
 const controlTotals = function () {
 	totalsView.render(model.state.totals);
@@ -20,7 +19,7 @@ const controlNumberOfQuestions = function () {
 };
 
 const controlWelcome = function () {
-	welcomeView.render(model.state.totals);
+	welcomeView.render(model.state);
 };
 
 const controlWelcomeClick = function (operation, inputElem) {

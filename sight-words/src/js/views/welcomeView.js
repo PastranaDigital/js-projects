@@ -1,5 +1,6 @@
 //! Presentation Logic
 import View from './View.js';
+import { roundDownTo5 } from '../helper.js';
 
 class WelcomeView extends View {
 	_parentElement = document.querySelector('#welcome');
@@ -104,12 +105,12 @@ class WelcomeView extends View {
 							<div class="number-input">
 								<input
 									type="number"
-									id="words"
-									name="words"
+									id="questions"
+									name="questions"
 									class="number-input-text-box"
 									value="10"
 									min="5"
-									max="100"
+									max="${roundDownTo5(this._data.questionBank.length)}"
 									data-step="5"
 								/>
 							</div>
