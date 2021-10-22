@@ -1,0 +1,19 @@
+{
+  "name": "sight-words",
+  "version": "1.0.0",
+  "description": "-   flash card style game for Gabriel's sight words\r -   user will select if pronunciation was correct",
+  "default": "controller.js",
+  "scripts": {
+    "start": "parcel index.html",
+	"build": "parcel build index.html --dist-dir ./dist"
+  },
+  "author": "Omar Pastrana",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.0.0"
+  },
+  "dependencies": {
+    "core-js": "^3.18.3",
+    "regenerator-runtime": "^0.13.9"
+  }
+}
