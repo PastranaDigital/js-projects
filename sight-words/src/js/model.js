@@ -74,5 +74,10 @@ export const state = {
 		'eight',
 		'find',
 		'at',
+		'happy',
+		'sad',
+		'angry',
+		'mad',
+		'made',
 	],
 };

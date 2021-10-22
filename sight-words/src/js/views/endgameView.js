@@ -37,10 +37,10 @@ class EndgameView extends View {
 				<div id="questionamt" class="modal-body">
 					
 					<!--<img src="https://cdn3.iconfinder.com/data/icons/geek-3/24/Game_Over_sign_video_game-512.png"/>-->
-					<img src="./src/img/gameover.png"/>
+					<img src="./src/img/gameover.png" width="100%"/>
 
 					<h1> Final Score </>
-					<div class="endgame-score">${((this._data.correctAnswers / this._data.totalSelectedQuestions) * 100).toFixed(2)}%</div>
+					<div class="endgame-score">${((this._data.correctAnswers / this._data.totalSelectedQuestions) * 100).toFixed(0)}%</div>
 
 					<!-- https://codepen.io/viestursm/pen/mdJeKVw -->
 				</div>
