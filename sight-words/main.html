@@ -5,7 +5,7 @@
 		<link rel="stylesheet" href="./src/css/main.css" />
 		<!-- Connects html to the css style sheet-->
 		<script type="module" defer src="src/js/controller.js"></script>
-		<title>Trivia Game</title>
+		<title>Sight Words</title>
 	</head>
 	<body>
 		<!-- Scoreboard information -->
@@ -18,25 +18,23 @@
 		<div class="question-wrapper">
 			<div class="question-block">
 				<!-- Question Box -->
-				<div id="question">
-					<!-- <h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla porta.</h1> -->
+				<div id="question"></div>
+			</div>
+			<div class="button-wrapper">
+				<!-- <table>
+					<tr>
+						<td> -->
+				<div class="answers correct" data-value="1">
+					<p>correct</p>
 				</div>
-
-				<!-- 4 different answer boxes/ may change this later-->
-				<!-- <div class="answers">
-					<p>Lorem ipsum dolor sit amet</p>
+				<!-- </td>
+						<td> -->
+				<div class="answers wrong" data-value="0">
+					<p>wrong</p>
 				</div>
-				<div class="answers">
-					<p>Lorem ipsum dolor sit amet</p>
-				</div>
-
-				<div class="answers2">
-					<p>Lorem ipsum dolor sit amet</p>
-				</div>
-
-				<div class="answers2">
-					<p>Lorem ipsum dolor sit amet</p>
-				</div> -->
+				<!-- </td>
+					</tr>
+				</table> -->
 			</div>
 		</div>
 
@@ -46,5 +44,6 @@
 		</div>
 
 		<div id="welcome"></div>
+		<div id="endgame"></div>
 	</body>
 </html>

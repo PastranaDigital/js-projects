@@ -15,22 +15,21 @@ class QuestionView extends View {
 		window.addEventListener('load', (e) => handler());
 	}
 
+	addHandlerAnswerClick(handler) {
+		const buttons = document.querySelector('.button-wrapper');
+		buttons.addEventListener('click', function (e) {
+			const btn = e.target.closest('.answers'); //? search the DOM
+			if (!btn) return;
+			// console.log(+btn.dataset.value);
+			// console.log('Answer click');
+			handler(+btn.dataset.value);
+		});
+	}
+
 	_generateMarkup() {
 		return `
 			<div id="question">
-				${this._data.question}
-			</div>
-			<div class="answer-wrapper">
-			${this._data.answers.map(this._generateMarkupAnswer).join('')}
-			</div>
-		`;
-	}
-
-	_generateMarkupAnswer(ans) {
-		ans = ans.split('@');
-		return `
-			<div class="answers">
-				<p data-answer='${ans[1] ? ans[1] : 'false'}'>${ans[0]}<p>
+				${this._data}
 			</div>
 		`;
 	}

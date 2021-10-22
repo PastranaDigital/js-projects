@@ -1,5 +1,6 @@
 //! Presentation Logic
 import View from './View.js';
+import { roundDownTo5 } from '../helper.js';
 
 class WelcomeView extends View {
 	_parentElement = document.querySelector('#welcome');
@@ -86,12 +87,12 @@ class WelcomeView extends View {
 		return `
 			<div id="overlay" class="active">
 				<div id="title">
-					<h1>Trivia Game</h1>
+					<h1>Sight Words</h1>
 				</div>
 			</div>
 			<div class="modal active" id="modal">
 				<div id="questionamt" class="modal-body">
-					<h1>How many questions for this game?</h1>
+					<h1>How many words for this game?</h1>
 
 					<!-- https://codepen.io/viestursm/pen/mdJeKVw -->
 					<form action="javascript:void(0);">
@@ -109,7 +110,7 @@ class WelcomeView extends View {
 									class="number-input-text-box"
 									value="10"
 									min="5"
-									max="100"
+									max="${roundDownTo5(this._data.questionBank.length)}"
 									data-step="5"
 								/>
 							</div>
@@ -122,7 +123,7 @@ class WelcomeView extends View {
 					</form>
 				</div>
 				<div class="modal-footer">
-					<button data-start-button class="start-button">GO</button>
+					<button data-start-button class="start-button">BEGIN</button>
 				</div>
 			</div>
 		`;

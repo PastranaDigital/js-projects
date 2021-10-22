@@ -12,11 +12,9 @@ class NumberOfQuestionsView extends View {
 
 	_generateMarkup() {
 		return `
-			<p>${this._data.currentQuestion} out of ${this._data.totalSelectedQuestions} questions</p>
+			<p>${this._data.currentQuestion} out of ${this._data.totalSelectedQuestions} words</p>
 		`;
 	}
 }
 
 export default new NumberOfQuestionsView();
-
-//<p>1 out of 10 questions</p>

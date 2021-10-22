@@ -19,3 +19,7 @@ export const shuffleArray = function (array) {
 
 	return array;
 };
+
+export const roundDownTo5 = function (incomingValue) {
+	return Math.floor(incomingValue / 5) * 5;
+};

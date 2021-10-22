@@ -7,14 +7,53 @@
 	box-sizing: border-box;
 }
 
-#totals {
+/* #totals {
 	position: absolute;
 	top: 10px;
-	right: 30px; /* Styling of the total counter */
+	right: 30px;
 	line-height: 5px;
 	font-family: 'Roboto', sans-serif;
 	font-size: 1rem;
 	color: var(--color-light);
+} */
+
+#totals {
+	font-family: 'Roboto', sans-serif;
+	/*   position: absolute; */
+	/*   top: 0.75rem; */
+	/*   right: 2rem; */
+	/*   line-height: 0.25rem; */
+	color: #ffffff;
+
+	position: fixed;
+	top: 0rem;
+	right: 0;
+	left: 0;
+	/*   width: 14rem; */
+	/*   height: 4rem; */
+	padding: 1rem 2rem;
+	background: var(--color-dark-text);
+	text-align: right;
+	justify-content: center;
+	box-shadow: 0px 0px 15px rgba(var(--color-dark-1-rgb), var(--box-shadow-opacity));
+}
+
+#totals table {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.table-heading {
+	color: var(--color-background-gradient-1);
+}
+
+.table-body {
+	font-size: 1.5rem;
+}
+
+#totals td {
+	width: 8ch;
+	text-align: center;
 }
 
 /* Styling of the question box */
@@ -23,25 +62,36 @@
 	justify-content: center;
 	text-align: center;
 	font-family: 'Roboto', sans-serif;
-	font-size: 3rem;
+	font-size: 7rem;
 	font-weight: 600;
-	padding: 1rem 2rem 3rem;
+	/* padding: 1rem 2rem 3rem; */
 	color: var(--color-dark-text);
 }
 
-.answer-wrapper {
+/* .answer-wrapper {
 	text-align: center;
 	display: grid;
 	grid-template-columns: repeat(auto-fill, 42%);
 	justify-content: center;
+} */
+
+.button-wrapper {
+	display: flex;
+	padding: 3rem 0 0;
 }
 
-/* Styling of the first 2 answer boxes in a line */
+.button-wrapper table {
+	margin-left: auto;
+	margin-right: auto;
+	height: 30vh;
+}
+
 .answers {
 	font-family: 'Roboto', sans-serif;
-	font-size: 1.5rem;
+	font-size: 2.5rem;
 	color: var(--color-light);
 	vertical-align: middle;
+	width: 100%;
 
 	cursor: pointer;
 	display: flex;
@@ -50,13 +100,26 @@
 	background: linear-gradient(150deg, var(--color-background-gradient-1), var(--color-background-gradient-2));
 
 	margin: 1rem;
-	padding: 1.5rem;
+	/* padding: 1.5rem; */
 	justify-content: center;
 }
 
-.answers:hover {
-	background: var(--color-background-gradient-2);
+.correct:hover {
+	/* background: var(--color-button-correct); */
 	box-shadow: none;
+}
+
+.wrong:hover {
+	/* background: var(--color-button-wrong); */
+	box-shadow: none;
+}
+
+.correct {
+	background: var(--color-button-correct);
+}
+
+.wrong {
+	background: var(--color-button-wrong);
 }
 
 .question-wrapper.active {
@@ -65,17 +128,21 @@
 
 .question-wrapper {
 	position: fixed;
-	top: 50%;
+	top: 55%;
 	left: 50%;
+	max-height: 80%;
+	width: 75%;
 	transform: translate(-50%, -50%) scale(0);
+}
+
+.question-block {
 	border: 0;
 	border-radius: 1.5rem;
 	z-index: 1;
 	background-color: var(--color-light);
-	max-height: 80%;
-	width: 75%;
+	height: auto;
 	box-shadow: 0px 4px 12px rgba(var(--color-dark-1-rgb), var(--box-shadow-opacity));
-	padding: 2.5rem;
+	padding: 1.5rem;
 	overflow-y: auto;
 }
 
@@ -96,13 +163,106 @@
 	left: 0;
 }
 
+.endgame-score {
+	padding-top: 2rem;
+	font-size: 4rem;
+}
+
 /* Supposed to change size of elements based on pixel size - not working yet */
-@media only screen and (max-width: 1250px) {
+/* @media only screen and (max-width: 1250px) {
 	.answers {
 		width: 100%;
 		margin: auto;
 		margin-top: 1rem;
 		padding-top: 1rem;
 		padding-bottom: 1rem;
+	}
+} */
+
+@media (max-width: 1000px) {
+	#overlay #title {
+		padding-top: 12rem;
+		font-size: 4rem;
+	}
+
+	.modal {
+		width: 80%;
+		height: 50%;
+		border-radius: 3rem;
+	}
+
+	.endgame-score {
+		padding-top: 6rem;
+		font-size: 8rem;
+	}
+
+	.question-block {
+		box-shadow: 4px 8px 24px rgba(var(--color-dark-1-rgb), var(--box-shadow-opacity));
+		padding: 2.5rem;
+	}
+
+	#numofquestions {
+		font-size: 2.5rem;
+	}
+
+	.modal-body {
+		font-size: 2.5rem;
+	}
+
+	input[type='number'] {
+		font-size: 6rem;
+		height: auto;
+	}
+
+	.number-button::after {
+		width: 3.5rem;
+	}
+
+	.modal-footer .start-button {
+		font-size: 3rem;
+		border-radius: 2rem;
+		width: 50%;
+		padding: 2rem 4rem;
+		bottom: 6rem;
+	}
+
+	form {
+		margin-top: 6rem;
+		padding: 1.5rem;
+		width: 85%;
+		font-size: 4rem;
+		border: 4px solid var(--color-background-gradient-2);
+		border-radius: 2rem;
+	}
+
+	.button-decrement::after {
+		background-image: var(--svg-url-minus-mobile);
+	}
+
+	.button-increment::after {
+		background-image: var(--svg-url-plus-mobile);
+	}
+
+	.answers {
+		padding: 1.5rem;
+		font-size: 2.5rem;
+	}
+
+	#question {
+		font-size: 9rem;
+		padding: 3rem 0;
+	}
+
+	#totals {
+		font-size: 2.5rem;
+		padding: 2rem 0;
+	}
+
+	.table-body {
+		font-size: 2.5rem;
+	}
+
+	.button-wrapper {
+		padding: 10rem 0 0;
 	}
 }

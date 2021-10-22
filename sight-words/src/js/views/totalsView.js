@@ -12,18 +12,37 @@ class TotalsView extends View {
 
 	_generateMarkup() {
 		return `
-			<p>Score: ${this._data.correctAnswers * 100}</p>
-			<p>Correct: ${this._data.correctAnswers}</p>
-			<p>Total: ${this._data.totalSelectedQuestions}</p>
-		`;
+			<div id="totals">
+				<table>
+					<tr>
+						<td class="table-heading">
+						Score
+						</td>
+						<td class="table-heading">
+						Correct
+						</td>
+						<td class="table-heading">
+						Total
+						</td>
+					</tr>
+					<tr>
+						<td class="table-body">${((this._data.correctAnswers / this._data.totalSelectedQuestions) * 100).toFixed(0)}%
+						</td>
+						<td class="table-body">${this._data.correctAnswers}
+						</td>
+						<td class="table-body">${this._data.totalSelectedQuestions}
+						</td>
+					</tr>
+				</table>
+			</div>
+			`;
 	}
 }
 
 export default new TotalsView();
 
 /*
-<p>Score:</p>
-<p>Correct:</p>
-<!-- Scoreboard information -->
-<p>Total:</p>
+<p>Score: ${this._data.correctAnswers * 100}</p>
+<p>Correct: ${this._data.correctAnswers}</p>
+<p>Total: ${this._data.totalSelectedQuestions}</p>
 */
