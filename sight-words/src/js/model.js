@@ -79,5 +79,12 @@ export const state = {
 		'angry',
 		'mad',
 		'made',
+		'Monday',
+		'Tuesday',
+		'Wednesday',
+		'Thursday',
+		'Friday',
+		'Saturday',
+		'Sunday',
 	],
 };
