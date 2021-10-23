@@ -22,6 +22,9 @@ class TotalsView extends View {
 						Correct
 						</td>
 						<td class="table-heading">
+						Wrong
+						</td>
+						<td class="table-heading">
 						Total
 						</td>
 					</tr>
@@ -31,6 +34,8 @@ class TotalsView extends View {
 							: ((this._data.correctAnswers / (this._data.currentQuestion - 1)) * 100).toFixed(0)}%
 						</td>
 						<td class="table-body">${this._data.correctAnswers}
+						</td>
+						<td class="table-body">${(this._data.currentQuestion - 1) - this._data.correctAnswers}
 						</td>
 						<td class="table-body">${this._data.totalSelectedQuestions}
 						</td>
