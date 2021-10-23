@@ -25,19 +25,21 @@ class TotalsView extends View {
 						Wrong
 						</td>
 						<td class="table-heading">
-						Total
+						Words
 						</td>
 					</tr>
 					<tr>
-						<td class="table-body">${this._data.currentQuestion === 1 
-							? 0 
-							: ((this._data.correctAnswers / (this._data.currentQuestion - 1)) * 100).toFixed(0)}%
+						<td class="table-body">${
+							this._data.currentQuestion === 1
+								? 0
+								: ((this._data.correctAnswers / (this._data.currentQuestion - 1)) * 100).toFixed(0)
+						}%
 						</td>
 						<td class="table-body">${this._data.correctAnswers}
 						</td>
-						<td class="table-body">${(this._data.currentQuestion - 1) - this._data.correctAnswers}
+						<td class="table-body">${this._data.currentQuestion - 1 - this._data.correctAnswers}
 						</td>
-						<td class="table-body">${this._data.totalSelectedQuestions}
+						<td class="table-body">${this._data.currentQuestion - 1}
 						</td>
 					</tr>
 				</table>
