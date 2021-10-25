@@ -47,7 +47,7 @@ const controlWelcomeClick = function (operation, inputElem) {
 		}
 		// console.log('New number of questions: ', value);
 
-		//? update the value inside the data with new number of questions
+		//? update the value inside the data with a new number of questions
 		model.updateNumOfQuestions(value);
 	}
 };
@@ -66,7 +66,26 @@ const controlWelcomeGoClick = function (payload) {
 const controlEndgame = function () {
 	questionView.toggleActiveClass();
 	endgameView.render(model.state.totals);
+	endgameView.addHandlerRestartClick(controlRestartGame);
 	// endgameView.toggleActiveClass();
+};
+
+const controlRenderGame = function () {
+	welcomeView.addHandlerRender(controlWelcome);
+	welcomeView.addHandlerClick(controlWelcomeClick);
+	welcomeView.addHandlerGoClick(controlWelcomeGoClick);
+};
+
+const controlRestartGame = function (payload) {
+	console.log(payload);
+	window.location.reload(false);
+
+	//? endgameView.removeActiveClass();
+	//? model.newGame();
+	// welcomeView.toggleActiveClass();
+
+	//? controlWelcome();
+	// controlRenderGame();
 };
 
 const controlAnswerClick = function (value) {
@@ -108,9 +127,7 @@ const init = function () {
 	// enable active states for buttons in mobile safari
 	document.addEventListener('touchstart', function () {}, false);
 
-	welcomeView.addHandlerRender(controlWelcome);
-	welcomeView.addHandlerClick(controlWelcomeClick);
-	welcomeView.addHandlerGoClick(controlWelcomeGoClick);
+	controlRenderGame();
 
 	//* moved to renderQuiz function
 	// model.shuffleQuestionOrder();

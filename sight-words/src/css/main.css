@@ -218,6 +218,7 @@
 		width: 3.5rem;
 	}
 
+	.modal-footer .new-button,
 	.modal-footer .start-button {
 		font-size: 3rem;
 		border-radius: 2rem;
