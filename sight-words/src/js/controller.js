@@ -66,7 +66,23 @@ const controlWelcomeGoClick = function (payload) {
 const controlEndgame = function () {
 	questionView.toggleActiveClass();
 	endgameView.render(model.state.totals);
+	endgameView.addHandlerRestartClick(controlRestartGame);
 	// endgameView.toggleActiveClass();
+};
+
+const controlRenderGame = function () {
+	welcomeView.addHandlerRender(controlWelcome);
+	welcomeView.addHandlerClick(controlWelcomeClick);
+	welcomeView.addHandlerGoClick(controlWelcomeGoClick);
+};
+
+const controlRestartGame = function (payload) {
+	console.log(payload);
+	// endgameView.removeActiveClass();
+	// welcomeView.toggleActiveClass();
+
+	controlWelcome();
+	// controlRenderGame();
 };
 
 const controlAnswerClick = function (value) {
@@ -108,9 +124,7 @@ const init = function () {
 	// enable active states for buttons in mobile safari
 	document.addEventListener('touchstart', function () {}, false);
 
-	welcomeView.addHandlerRender(controlWelcome);
-	welcomeView.addHandlerClick(controlWelcomeClick);
-	welcomeView.addHandlerGoClick(controlWelcomeGoClick);
+	controlRenderGame();
 
 	//* moved to renderQuiz function
 	// model.shuffleQuestionOrder();

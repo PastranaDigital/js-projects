@@ -213,6 +213,7 @@ input[type='number'] {
 	align-items: center;
 }
 
+.modal-footer .new-button,
 .modal-footer .start-button {
 	position: fixed;
 	bottom: 4rem;
@@ -234,6 +235,7 @@ input[type='number'] {
 	font-weight: 600;
 }
 
+.new-button:hover,
 .start-button:hover {
 	background: var(--color-background-gradient-2);
 	box-shadow: none;
