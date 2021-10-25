@@ -47,7 +47,7 @@ const controlWelcomeClick = function (operation, inputElem) {
 		}
 		// console.log('New number of questions: ', value);
 
-		//? update the value inside the data with new number of questions
+		//? update the value inside the data with a new number of questions
 		model.updateNumOfQuestions(value);
 	}
 };
@@ -78,10 +78,13 @@ const controlRenderGame = function () {
 
 const controlRestartGame = function (payload) {
 	console.log(payload);
-	// endgameView.removeActiveClass();
+	window.location.reload(false);
+
+	//? endgameView.removeActiveClass();
+	//? model.newGame();
 	// welcomeView.toggleActiveClass();
 
-	controlWelcome();
+	//? controlWelcome();
 	// controlRenderGame();
 };
 

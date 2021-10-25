@@ -17,6 +17,11 @@ export const advanceCurrentNumber = function () {
 	state.totals.currentQuestion++;
 };
 
+export const newGame = function () {
+	state.totals.correctAnswers = 0;
+	state.totals.currentQuestion = 1;
+};
+
 export const state = {
 	totals: {
 		correctAnswers: 0,

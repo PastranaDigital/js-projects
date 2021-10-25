@@ -18,10 +18,13 @@ class EndgameView extends View {
 	}
 
 	removeActiveClass() {
-		const modal = document.querySelector('#modal');
-		console.log('before', modal.classList);
-		modal.classList.remove('active');
-		console.log('after', modal.classList);
+		// _clear() {
+		this._parentElement.innerHTML = '';
+		// }
+		// const modal = document.querySelector('#modal');
+		// console.log('before', modal.classList);
+		// modal.classList.remove('active');
+		// console.log('after', modal.classList);
 	}
 
 	addHandlerRestartClick(handler) {
