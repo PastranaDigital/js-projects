@@ -1,6 +1,6 @@
 //! Presentation Logic
 import View from './View.js';
-// import photo from 'url:../../img/gameover.png';
+import photo from 'url:../../img/gameover.png';
 
 class EndgameView extends View {
 	_parentElement = document.querySelector('#endgame');
@@ -48,7 +48,8 @@ class EndgameView extends View {
 				<div id="questionamt" class="modal-body">
 					
 					<!--<img src="https://cdn3.iconfinder.com/data/icons/geek-3/24/Game_Over_sign_video_game-512.png"/>-->
-					<img src="./src/img/gameover.png" width="100%"/>
+					<!--<img src="./src/img/gameover.png" width="100%"/>-->
+					<img src=${photo} width="100%"/>
 					
 
 					<h1> Final Score </>
