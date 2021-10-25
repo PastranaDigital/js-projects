@@ -181,7 +181,7 @@
 
 @media (max-width: 1000px) {
 	#overlay #title {
-		padding-top: 8rem;
+		/* padding-top: 8rem; */
 		font-size: 4rem;
 	}
 
@@ -228,7 +228,7 @@
 	}
 
 	form {
-		margin-top: 6rem;
+		/* margin-top: 6rem; */
 		padding: 1.5rem;
 		width: 85%;
 		font-size: 4rem;
