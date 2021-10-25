@@ -181,7 +181,7 @@
 
 @media (max-width: 1000px) {
 	#overlay #title {
-		padding-top: 12rem;
+		padding-top: 8rem;
 		font-size: 4rem;
 	}
 
@@ -206,11 +206,11 @@
 	}
 
 	.modal-body {
-		font-size: 2.5rem;
+		font-size: 2rem;
 	}
 
 	input[type='number'] {
-		font-size: 6rem;
+		font-size: 5rem;
 		height: auto;
 	}
 
