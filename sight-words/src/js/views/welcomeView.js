@@ -21,7 +21,7 @@ class WelcomeView extends View {
 
 	addHandlerClick(handler) {
 		this._parentElement.addEventListener('click', function (e) {
-			const btn = e.target.closest('.number-button'); //? search the DOM
+			const btn = e.target.closest('#selector'); //? search the DOM
 			if (!btn) return;
 
 			// console.log(btn.dataset.operation);
@@ -94,32 +94,30 @@ class WelcomeView extends View {
 				<div id="questionamt" class="modal-body">
 					<h1>How many words for this game?</h1>
 
+					<!-- https://codepen.io/jussivirtanen/pen/GRZoMLX -->
+
 					<!-- https://codepen.io/viestursm/pen/mdJeKVw -->
 					<form action="javascript:void(0);">
-						<div class="number-input-container">
-							<button
-								type="button"
-								class="number-button button-decrement"
-								data-operation="decrement"
-							></button>
-							<div class="number-input">
-								<input
-									type="number"
-									id="questions"
-									name="questions"
-									class="number-input-text-box"
-									value="10"
-									min="5"
-									max="${roundDownTo5(this._data.questionBank.length)}"
-									data-step="5"
-								/>
+						<div class="container">
+							<div class="input">
+							<button id="selector" class="minus" aria-label="Decrease by one" disabled>
+								<svg width="32" height="2" viewBox="0 0 32 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<line y1="1" x2="32" y2="1" stroke="#000000" stroke-width="4" class="icon" />
+								</svg>
+
+							</button>
+							<div class="number dim">5</div>
+							<button id="selector" class="plus" aria-label="Increase by one">
+								<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="plus">
+								<line x1="16" y1="4.37114e-08" x2="16" y2="32" stroke="#000000" stroke-width="4" />
+								<line y1="16" x2="32" y2="16" stroke="#000000" stroke-width="4" />
+								</svg>
+
+							</button>
 							</div>
-							<button
-								type="button"
-								class="number-button button-increment"
-								data-operation="increment"
-							></button>
 						</div>
+
+						<!-- roundDownTo5(this._data.questionBank.length) -->
 					</form>
 				</div>
 				<div class="modal-footer">
