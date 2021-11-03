@@ -20,14 +20,13 @@ class WelcomeView extends View {
 	}
 
 	addHandlerClick(handler) {
-		this._parentElement.addEventListener('click', function (e) {
-			const btn = e.target.closest('#selector'); //? search the DOM
-			if (!btn) return;
-
-			console.log(btn.dataset.operation);
-			console.log(document.getElementById('questions'));
-			handler(btn.dataset.operation, document.getElementById('questions'));
-		});
+		// this._parentElement.addEventListener('click', function (e) {
+		// 	const btn = e.target.closest('#selector'); //? search the DOM
+		// 	if (!btn) return;
+		// 	console.log(btn.dataset.operation);
+		// 	console.log(document.getElementById('questions'));
+		// 	handler(btn.dataset.operation, document.getElementById('questions'));
+		// });
 	}
 
 	addHandlerGoClick(handler) {
@@ -35,8 +34,8 @@ class WelcomeView extends View {
 			const btn = e.target.closest('.start-button'); //? search the DOM
 			if (!btn) return;
 
-			console.log('Go click');
-			handler('rendering quiz...');
+			console.log(btn.dataset.startValue);
+			handler(btn.dataset.startValue);
 		});
 	}
 
