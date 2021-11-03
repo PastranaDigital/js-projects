@@ -24,7 +24,8 @@ class WelcomeView extends View {
 			const btn = e.target.closest('#selector'); //? search the DOM
 			if (!btn) return;
 
-			// console.log(btn.dataset.operation);
+			console.log(btn.dataset.operation);
+			console.log(document.getElementById('questions'));
 			handler(btn.dataset.operation, document.getElementById('questions'));
 		});
 	}

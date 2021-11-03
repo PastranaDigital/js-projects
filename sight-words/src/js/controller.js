@@ -30,6 +30,7 @@ const controlWelcomeClick = function (operation, element) {
 	// button.addEventListener('click', (event) => {
 	// 1. Get the clicked element
 	// const element = event.currentTarget;
+	console.log(event.currentTarget);
 	// 2. Get the parent
 	const parent = element.parentNode;
 	// 3. Get the number (within the parent)
