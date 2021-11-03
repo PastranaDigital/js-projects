@@ -21,10 +21,11 @@ class WelcomeView extends View {
 
 	addHandlerClick(handler) {
 		this._parentElement.addEventListener('click', function (e) {
-			const btn = e.target.closest('.number-button'); //? search the DOM
+			const btn = e.target.closest('#selector'); //? search the DOM
 			if (!btn) return;
 
-			// console.log(btn.dataset.operation);
+			console.log(btn.dataset.operation);
+			console.log(document.getElementById('questions'));
 			handler(btn.dataset.operation, document.getElementById('questions'));
 		});
 	}
@@ -34,7 +35,7 @@ class WelcomeView extends View {
 			const btn = e.target.closest('.start-button'); //? search the DOM
 			if (!btn) return;
 
-			// console.log('Go click');
+			console.log('Go click');
 			handler('rendering quiz...');
 		});
 	}
@@ -94,36 +95,12 @@ class WelcomeView extends View {
 				<div id="questionamt" class="modal-body">
 					<h1>How many words for this game?</h1>
 
-					<!-- https://codepen.io/viestursm/pen/mdJeKVw -->
-					<form action="javascript:void(0);">
-						<div class="number-input-container">
-							<button
-								type="button"
-								class="number-button button-decrement"
-								data-operation="decrement"
-							></button>
-							<div class="number-input">
-								<input
-									type="number"
-									id="questions"
-									name="questions"
-									class="number-input-text-box"
-									value="10"
-									min="5"
-									max="${roundDownTo5(this._data.questionBank.length)}"
-									data-step="5"
-								/>
-							</div>
-							<button
-								type="button"
-								class="number-button button-increment"
-								data-operation="increment"
-							></button>
-						</div>
-					</form>
-				</div>
-				<div class="modal-footer">
-					<button data-start-button class="start-button">BEGIN</button>
+					<div class="modal-buttons">
+						<button data-start-value="10" class="start-button">10</button>
+						<button data-start-value="20" class="start-button">20</button>
+						<button data-start-value="ALL" class="start-button">ALL</button>
+					</div>
+					
 				</div>
 			</div>
 		`;
