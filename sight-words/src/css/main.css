@@ -193,7 +193,7 @@
 	}
 
 	.endgame-score {
-		padding-top: 6rem;
+		padding-top: 4rem;
 		font-size: 8rem;
 	}
 
@@ -223,8 +223,8 @@
 	.modal-footer .start-button {
 		font-size: 3rem;
 		border-radius: 2rem;
-		width: 50%;
-		padding: 2rem 4rem;
+		width: 80%;
+		padding: 4rem 4rem;
 		bottom: 6rem;
 	}
 
