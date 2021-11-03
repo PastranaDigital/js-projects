@@ -180,9 +180,9 @@
 	}
 } */
 
-@media (max-width: 1000px) {
+@media (max-width: 950px) {
 	#overlay #title {
-		/* padding-top: 8rem; */
+		padding-top: 5rem;
 		font-size: 4rem;
 	}
 
@@ -225,6 +225,18 @@
 		border-radius: 2rem;
 		width: 50%;
 		padding: 2rem 4rem;
+		bottom: 6rem;
+	}
+
+	.modal-buttons {
+		padding-top: 0;
+	}
+
+	.modal-buttons .start-button {
+		font-size: 3rem;
+		border-radius: 2rem;
+		width: 80%;
+		padding: 4rem 4rem;
 		bottom: 6rem;
 	}
 

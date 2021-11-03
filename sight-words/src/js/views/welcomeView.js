@@ -35,7 +35,7 @@ class WelcomeView extends View {
 			const btn = e.target.closest('.start-button'); //? search the DOM
 			if (!btn) return;
 
-			// console.log('Go click');
+			console.log('Go click');
 			handler('rendering quiz...');
 		});
 	}
@@ -95,34 +95,12 @@ class WelcomeView extends View {
 				<div id="questionamt" class="modal-body">
 					<h1>How many words for this game?</h1>
 
-					<!-- https://codepen.io/jussivirtanen/pen/GRZoMLX -->
-
-					<!-- https://codepen.io/viestursm/pen/mdJeKVw -->
-					<form action="javascript:void(0);">
-						<div class="container">
-							<div class="input">
-							<button id="selector" class="minus" aria-label="Decrease by one" disabled>
-								<svg width="32" height="2" viewBox="0 0 32 2" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<line y1="1" x2="32" y2="1" stroke="#000000" stroke-width="4" class="icon" />
-								</svg>
-
-							</button>
-							<div class="number dim">5</div>
-							<button id="selector" class="plus" aria-label="Increase by one">
-								<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="plus">
-								<line x1="16" y1="4.37114e-08" x2="16" y2="32" stroke="#000000" stroke-width="4" />
-								<line y1="16" x2="32" y2="16" stroke="#000000" stroke-width="4" />
-								</svg>
-
-							</button>
-							</div>
-						</div>
-
-						<!-- roundDownTo5(this._data.questionBank.length) -->
-					</form>
-				</div>
-				<div class="modal-footer">
-					<button data-start-button class="start-button">BEGIN</button>
+					<div class="modal-buttons">
+						<button data-start-value="10" class="start-button">10</button>
+						<button data-start-value="20" class="start-button">20</button>
+						<button data-start-value="ALL" class="start-button">ALL</button>
+					</div>
+					
 				</div>
 			</div>
 		`;

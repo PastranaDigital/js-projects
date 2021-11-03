@@ -235,6 +235,32 @@ input[type='number'] {
 	font-weight: 600;
 }
 
+.modal-buttons {
+	padding-top: 2rem;
+}
+
+.modal-buttons .start-button {
+	/* position: fixed; */
+	/* bottom: 4rem; */
+
+	display: inline-flex;
+	justify-content: center;
+	border: 0;
+	margin: 1rem;
+	padding: 1rem 2rem;
+	cursor: pointer;
+	text-align: center;
+	border-radius: 0.75rem;
+	background: linear-gradient(150deg, var(--color-background-gradient-1), var(--color-background-gradient-2));
+	box-shadow: 0px 4px 12px rgba(var(--color-dark-1-rgb), var(--box-shadow-opacity));
+	font-family: 'Roboto', sans-serif;
+	font-size: 1rem;
+	color: var(--color-light);
+	width: 30%;
+	font-size: 1.5rem;
+	font-weight: 600;
+}
+
 .new-button:hover,
 .start-button:hover {
 	background: var(--color-background-gradient-2);
