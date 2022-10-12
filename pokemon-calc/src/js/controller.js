@@ -12,27 +12,54 @@ btn.addEventListener('click', () => {
 	console.log(gamesToSimulate);
 	// alert('clicked');
 	// console.log(parseIncomingDeckList(decklist));
+	let results = [];
+	let isArcEnergy = 0;
 	for (let i = 0; i < gamesToSimulate; i++) {
 		let hand = pickStartingHand(parseIncomingDeckList(decklist));
-		console.log('hand: ', hand);
+		// console.log('hand: ', hand);
+		// console.log(checkHandForArcEnergy(hand));
+		if (checkHandForArcEnergy(hand)) isArcEnergy++;
+		results.push(...hand);
 	}
+	// console.log(results);
+	results = results.sort();
+	results = results.reverse();
+	// console.log(results);
+	let arcEnergyPercentage = ((isArcEnergy / gamesToSimulate) * 100).toFixed(1);
+	console.log(`${arcEnergyPercentage}%`);
 
-	putResultsIn(fakeResults);
+	// putResultsIn(fakeResults);
+
+	//? graph results
+	let options = [
+		{
+			y: results,
+			type: 'histogram',
+			marker: {
+				color: 'lightblue',
+			},
+		},
+	];
+	let layout = {
+		title: 'Hide the Modebar',
+		showlegend: false,
+	};
+	Plotly.newPlot('myDiv', options, layout, { displayModeBar: false });
 });
 
 const parseIncomingDeckList = (list) => {
 	let parts = list.split('\n\n');
 	let cardsPokemon = expandCards(parts[0].split('\n'));
 	let cardsSupporters = expandCards(parts[1].split('\n'));
-	let cardsEnergies = expandCards(parts[2].split('\n'));
+	let cardsEnergies = expandCards(parts[2].split('\n'), true);
 	let fulldeck = [...cardsPokemon, ...cardsSupporters, ...cardsEnergies];
 	return fulldeck;
 };
 
-const expandCards = (list) => {
+const expandCards = (list, isEnergy = false) => {
 	let expanded = [];
 	list.forEach((group) => {
-		let parts = splitOnFirstCharacter(group, ' ');
+		let parts = splitOnFirstCharacter(group, ' ', isEnergy);
 		for (let i = 0; i < parts[0]; i++) {
 			// console.log(parts[1]);
 			expanded.push(parts[1]);
@@ -41,8 +68,11 @@ const expandCards = (list) => {
 	return expanded;
 };
 
-const splitOnFirstCharacter = (str, char) => {
-	const [first, ...rest] = str.split(char);
+const splitOnFirstCharacter = (str, char, isEnergy = false) => {
+	let [first, ...rest] = str.split(char);
+	// console.log(rest, rest.length);
+	rest = isEnergy ? rest.slice(0, -1) : rest.slice(0, -2);
+	// console.log(rest, rest.length);
 	const remainder = rest.join(char);
 	return [first, remainder];
 };
@@ -65,6 +95,17 @@ const putResultsIn = (results) => {
 		})
 		.join('');
 	resultsSection.innerHTML = resultsHTML;
+};
+
+const checkHandForArcEnergy = (hand) => {
+	let arceus = hand.includes('Arceus V') || hand.includes('Quick Ball') || hand.includes('Ultra Ball');
+	let energy =
+		hand.includes('Grass Energy') ||
+		hand.includes('Psychic Energy') ||
+		hand.includes('Capture Energy') ||
+		hand.includes('Double Turbo Energy') ||
+		hand.includes('Powerful Colorless Energy');
+	return arceus && energy;
 };
 
 const fakeResults = [
@@ -109,4 +150,5 @@ const data = `
 4 Double Turbo Energy BRS 151
 4 Psychic Energy 5
 1 Capture Energy RCL 171
-1 Powerful Colorless Energy DAA 176`;
+1 Powerful Colorless Energy DAA 176
+`;
