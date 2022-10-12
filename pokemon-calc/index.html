@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Code Review</title>
+	<link rel="shortcut icon" href="./src/img/favicon.png" type="image/x-icon" />
+	<link rel="stylesheet" href="./src/css/main.css" />
+	<script type="module" defer src="src/js/controller.js"></script>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+	<div class="container">
+		<h1>Pokemon Calculator</h1>
+
+		<div class="wrapper">
+			<h2 class="wrapper-title">Calculator Information</h2>
+			<div class="content">
+				<!-- <span class="material-icons">content_copy</span> -->
+				<form>
+					<div class="form-column">
+						<div class="input-wrapper">
+							<label for"deck">Decklist</label>
+							<!-- <input class="large-text" type="text" name="deck" placeholder=""> -->
+							<textarea class="decklist" id="deck" name="deck" rows="10" cols="50"></textarea>
+						</div>
+					</div>
+					<div class="form-column">
+						<div></div>
+						<div class="input-wrapper">
+							<label for"first">Going First</label>
+							<input type="checkbox" name="first" placeholder="">
+						</div>
+						<div class="input-wrapper">
+							<label for"games">Game Starts to Simulate</label>
+							<input class="games-to-simulate" type="number" name="games" placeholder="10">
+						</div>
+						<div class="input-wrapper">
+							<label for"story">Other Option</label>
+							<input type="text" name="story" placeholder="">
+						</div>
+					</div>
+				</form>
+				<button class="custom-btn btn-1">Calculate</button>
+			</div>
+		</div>
+		<div class="wrapper">
+			<h2 class="wrapper-title">Results</h2>
+			<div class="content resultsSection">
+				RESULTS GRAPHS
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>
