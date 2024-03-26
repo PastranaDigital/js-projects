@@ -1,114 +1,189 @@
-console.clear();
+import { allCards } from './mergeJSON.js';
 
-let data;
 let inputStr = '';
-let outputStr = '';
+
+// console.log('allCards: ', allCards);
 
 const inputElement = document.querySelector('.input-textarea');
 if (inputElement)
 	inputElement.addEventListener('change', () => {
 		inputStr = inputElement.value;
-		const alert = document.querySelector('.alert');
-		if (alert) alert.classList.add('hide');
 	});
 
 const buttonElement = document.querySelector('.submit-button');
 if (buttonElement) buttonElement.addEventListener('click', processInput);
 
+let error = false;
+
 // METHODS
 
 function processInput() {
-	let adjInputStr = inputStr.split('<labels>');
-	adjInputStr.shift(); // remove the xml header
-	let finalArr = [];
-	adjInputStr.forEach((el) => {
-		let tempObj = parseXmlToJson(el);
-		// avoid adding duplicates
-		if (finalArr.some((e) => e.fullName === tempObj.fullName)) return;
-		finalArr.push(tempObj);
-	});
-	return sortArray(finalArr, 'fullName');
-}
-
-function parseXmlToJson(xml) {
-	const arr = [];
-	const json = {};
-	for (const res of xml.matchAll(/(?:<(\w*)(?:\s[^>]*)*>)((?:(?!<\1).)*)(?:<\/\1>)|<(\w*)(?:\s*)*\/>/gm)) {
-		// console.log("res", JSON.stringify(res));
-		const key = res[1] || res[3];
-		const value = res[2];
-		// const value = res[2] && parseXmlToJson(res[2]);
-		json[key] = (value && Object.keys(value).length ? value : res[2]) || null;
-		// arr.push(json);
-		// return json;
+	if (!inputStr) {
+		error = true;
+		console.error('Error: no input');
+		return;
 	}
-	// console.log("json: ", json);
-	return json;
+	//? convert cards
+	let decklist = convertStringToCardObj(inputStr);
+
+	//? add images to card objects
+	decklist = addImagesToCardObj(decklist, allCards);
+
+	//? build card images
+	buildDeckImage(decklist);
+
+	//? hide other things
+
+	const inputWrapper = document.querySelector('.input-wrapper');
+	if (inputWrapper) inputWrapper.classList.add('hide');
+	const buttonWrapper = document.querySelector('.button-wrapper');
+	if (buttonWrapper) buttonWrapper.classList.add('hide');
+
+	console.log('decklist: ', decklist);
+	// return [...cardObj];
 }
 
-const transformInput = (data) => {
-	if (!data) return;
-	let array = data.split('\n');
-	//? Clean up the first & last \n from the paste
-	if (array[0].length == 0) array.shift();
-	if (array[array.length - 1].length == 0) array.pop();
+const convertStringToCardObj = (decklist) => {
+	/*
+4 Roaring Moon TEF 109
+3 Koraidon TEF 119
+3 Flutter Mane TEF 78
+2 Roaring Moon ex PAR 124
+1 Radiant Greninja ASR 46
 
-	console.log(array.length);
-	// console.log(array);
+4 Explorer's Guidance TEF 147
+4 Professor Sada's Vitality PAR 170
+4 Earthen Vessel PAR 163
+4 Nest Ball PAF 84
+3 Dark Patch ASR 139
+3 Pokégear 3.0 SVI 186
+2 Ultra Ball PAF 91
+2 Counter Catcher PAR 160
+2 Super Rod PAL 188
+1 Prime Catcher TEF 157
+1 Pal Pad SVI 182
+1 Switch Cart ASR 154
+4 Ancient Booster Energy Capsule PAR 159
+4 PokéStop PGO 68
 
-	let finalArray = [];
-	array.forEach((el) => {
-		let tempObj = {};
-		let split = el.indexOf('.');
-		tempObj.name = el.substring(0, split);
-		tempObj.value = el.substring(split + 1);
-		// console.log(tempObj);
-		finalArray.push(tempObj);
+6 Darkness Energy 7
+2 Fighting Energy 6
+	*/
+	let setMap = {
+		ASR: 'swsh10',
+		BRS: 'swsh9',
+		BST: 'swsh5',
+		CEL: 'cel25',
+		CRE: 'swsh6',
+		CRZ: 'swsh12pt5',
+		EVS: 'swsh7',
+		FST: 'swsh8',
+		FUT20: 'fut20',
+		LOR: 'swsh11',
+		MEW: 'sv3pt5',
+		OBF: 'sv3',
+		PAF: 'sv4pt5',
+		PAL: 'sv2',
+		PAR: 'sv4',
+		PGO: 'pgo',
+		// PR-SV: '',
+		// PR-SW: '',
+		SHF: 'swsh45',
+		SIT: 'swsh12',
+		SVE: 'sve',
+		SVI: 'sv1',
+		TEF: 'sv5',
+	};
+	let dataArray = decklist.split('\n');
+	let cardArray = [];
+	dataArray.forEach((el) => {
+		let arr = el.split(' ');
+		let cardObj = {
+			count: arr.shift(),
+			number: Number(arr.pop()),
+			ptcgoCode: arr.pop(),
+			name: arr.join(' '),
+		};
+		cardObj.set = setMap[cardObj?.ptcgoCode];
+		if (!cardObj.number) return;
+		cardArray.push(cardObj);
 	});
 
-	console.log(finalArray);
-	let sortedArr = sortArray(finalArray, 'name', false);
-	let uniqueArr = uniqueVals(finalArray, 'value');
-	let groupedUniqueArr = groupBy(uniqueArr, 'name');
-
-	createPackageXml(groupedUniqueArr);
+	return cardArray;
 };
 
-// HELPERS
+const addImagesToCardObj = (decklist, allCards) => {
+	if (!decklist) return;
 
-const groupBy = (arr, enumProperty) => {
-	return arr.reduce(function (item, prop) {
-		if (!item[prop[enumProperty]]) {
-			item[prop[enumProperty]] = [];
-		}
-		item[prop[enumProperty]].push(prop);
-		return item;
-	}, {});
-};
-
-/**
- * @description Takes in a list of objects and checks for unique records based on a property
- * @param {*} list List of objects to iterate through
- * @param {*} uniqueProperty Unique property that list should filter against
- * @returns {Array<object>}
- */
-
-const uniqueVals = (list, uniqueProperty) => {
-	if (list?.length) {
-		const result = [];
-		const map = new Map();
-		for (const item of list) {
-			if (item && !map.has(item[uniqueProperty])) {
-				map.set(item[uniqueProperty], true);
-				result.push({ ...item });
+	//? search thru allCards for a match
+	decklist.forEach((el) => {
+		allCards.forEach((c) => {
+			if (c.number == el.number && (c.set.ptcgoCode == el.ptcgoCode || c.set.id == el.set)) {
+				el.imageUrl = c.images.small;
+			} else if (el.ptcgoCode == 'Energy' && c.set.id == 'sve' && el.number == c.number) {
+				el.imageUrl = c.images.small;
 			}
+		});
+		if (!el.imageUrl) {
+			el.displayName = el.name;
+			el.imageUrl = 'src/img/default_card2.png';
 		}
-		return result;
+	});
+	return decklist;
+};
+
+const buildDeckImage = (decklist) => {
+	const outputElement = document.querySelector('.output-wrapper');
+	const decklistContent = document.querySelector('.decklist-content');
+
+	let decklistHtml = decklist
+		.map((card) => {
+			return `
+<div class="card">
+	<!-- <img class="image" src=${card.imageUrl}> -->
+	<div class="image" style="
+	background-image: url('${card.imageUrl}'); background-size: cover;">${card.displayName ? card.displayName : ''}</div>
+	<span class="count">${card.count}</span>
+</div>
+		`;
+		})
+		.join('');
+
+	if (outputElement) {
+		outputElement.classList.remove('hide');
+		decklistContent.innerHTML = decklistHtml;
 	}
 };
 
-const sortArray = (incomingArray, value, descending = false) => {
-	let i = descending ? -1 : 1;
-	incomingArray.sort((a, b) => (a[value] > b[value] ? 1 * i : b[value] > a[value] ? -1 * i : 0));
-	console.log('incomingArray: ', incomingArray);
+/*
+const createPackageXml = (data) => {
+	let topHtml = `<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+  <Package xmlns="http://soap.sforce.com/2006/04/metadata">`;
+	let htmlString = '';
+	let bottomHtml = `
+	  <version>${versionNumber}.0</version>
+  </Package>`;
+
+	for (const [key, value] of Object.entries(data)) {
+		let bodyTop = `
+	  <types>`;
+		let bodyMiddle = value
+			.map((el) => {
+				return `
+		  <members>${el.value}</members>`;
+			})
+			.join('');
+		let bodyBottom = `
+		  <name>${key}</name>
+	  </types>`;
+
+		htmlString += bodyTop + bodyMiddle + bodyBottom;
+	}
+
+	const outputElement = document.querySelector('.output-textarea');
+	if (outputElement) {
+		outputStr = topHtml + htmlString + bottomHtml;
+		outputElement.innerHTML = topHtml + htmlString + bottomHtml;
+	}
 };
+*/
