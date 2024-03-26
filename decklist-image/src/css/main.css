@@ -1,5 +1,5 @@
 * {
-	--color1: #282828;
+	--color1: #1b1b1b;
 	--color2: #d3d3d3;
 }
 
@@ -20,7 +20,7 @@ h1 {
 	flex-direction: row;
 	gap: 2rem;
 	justify-content: center;
-	padding: 1rem 3rem;
+	padding: 1rem 3rem 2rem;
 	font-family: sans-serif;
 }
 
@@ -58,7 +58,7 @@ textarea {
 /* to align image in center */
 .output-wrapper {
 	width: 85vw;
-	padding: 1rem 0 0;
+	/* padding: 1rem 0 0; */
 	/* min-height: 80vh; */
 	display: flex;
 	flex-direction: column;
