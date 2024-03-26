@@ -5,9 +5,10 @@
 	<meta charset="UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Code Review</title>
+	<title>Pokemon Calculator</title>
 	<link rel="shortcut icon" href="./src/img/favicon.png" type="image/x-icon" />
 	<link rel="stylesheet" href="./src/css/main.css" />
+	<link rel="stylesheet" href="./src/css/spinner.css" />
 	<script type="module" defer src="src/js/controller.js"></script>
 	<script src='https://cdn.plot.ly/plotly-2.14.0.min.js'></script>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -37,7 +38,7 @@
 						</div>
 						<div class="input-wrapper">
 							<label for"games">Game Starts to Simulate</label>
-							<input class="games-to-simulate" type="number" name="games" placeholder="100000">
+							<input class="games-to-simulate" type="number" name="games" placeholder="1000000">
 						</div>
 						<div class="input-wrapper">
 							<label for"story">Other Option</label>
@@ -50,6 +51,8 @@
 		</div>
 		<div class="wrapper">
 			<h2 class="wrapper-title">Card Distribution</h2>
+			<div class="loading-spinner">
+			</div>
 			<div id='myDiv'>
 				<!-- Plotly chart will be drawn inside this DIV -->
 			</div>
