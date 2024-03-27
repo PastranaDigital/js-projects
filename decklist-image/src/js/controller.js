@@ -86,8 +86,8 @@ const convertStringToCardObj = (decklist) => {
 		PAL: 'sv2',
 		PAR: 'sv4',
 		PGO: 'pgo',
-		// PR-SV: '',
-		// PR-SW: '',
+		SVP: 'svp',
+		SWP: 'swp',
 		SHF: 'swsh45',
 		SIT: 'swsh12',
 		SVE: 'sve',
@@ -125,7 +125,7 @@ const addImagesToCardObj = (decklist, allCards) => {
 			}
 		});
 		if (!el.imageUrl) {
-			el.displayName = el.name;
+			el.displayName = `${el.name} ${el.ptcgoCode} ${el.number}`;
 			el.imageUrl = 'src/img/default_card2.png';
 		}
 	});
