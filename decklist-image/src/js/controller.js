@@ -18,6 +18,7 @@ let error = false;
 // METHODS
 
 function processInput() {
+	if (inputElement) inputStr = inputElement.value;
 	if (!inputStr) {
 		error = true;
 		console.error('Error: no input');
@@ -154,36 +155,3 @@ const buildDeckImage = (decklist) => {
 		decklistContent.innerHTML = decklistHtml;
 	}
 };
-
-/*
-const createPackageXml = (data) => {
-	let topHtml = `<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
-  <Package xmlns="http://soap.sforce.com/2006/04/metadata">`;
-	let htmlString = '';
-	let bottomHtml = `
-	  <version>${versionNumber}.0</version>
-  </Package>`;
-
-	for (const [key, value] of Object.entries(data)) {
-		let bodyTop = `
-	  <types>`;
-		let bodyMiddle = value
-			.map((el) => {
-				return `
-		  <members>${el.value}</members>`;
-			})
-			.join('');
-		let bodyBottom = `
-		  <name>${key}</name>
-	  </types>`;
-
-		htmlString += bodyTop + bodyMiddle + bodyBottom;
-	}
-
-	const outputElement = document.querySelector('.output-textarea');
-	if (outputElement) {
-		outputStr = topHtml + htmlString + bottomHtml;
-		outputElement.innerHTML = topHtml + htmlString + bottomHtml;
-	}
-};
-*/
