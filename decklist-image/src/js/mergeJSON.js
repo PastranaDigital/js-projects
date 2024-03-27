@@ -8,6 +8,7 @@ import * as evsJson from './cardsBySet/EVS.json' assert { type: 'json' };
 import * as fstJson from './cardsBySet/FST.json' assert { type: 'json' };
 import * as fut20Json from './cardsBySet/FUT20.json' assert { type: 'json' };
 import * as lorJson from './cardsBySet/LOR.json' assert { type: 'json' };
+import * as miscJson from './cardsBySet/MISC.json' assert { type: 'json' };
 import * as mewJson from './cardsBySet/MEW.json' assert { type: 'json' };
 import * as obfJson from './cardsBySet/OBF.json' assert { type: 'json' };
 import * as pafJson from './cardsBySet/PAF.json' assert { type: 'json' };
@@ -33,6 +34,7 @@ export const allCards = [
 	...fstJson.default.data,
 	...fut20Json.default.data,
 	...lorJson.default.data,
+	...miscJson.default.data,
 	...mewJson.default.data,
 	...obfJson.default.data,
 	...pafJson.default.data,
