@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Generate Pokemon Decklist Image</title>
+	<link rel="stylesheet" href="src\css\main.css" />
+	<script type="module" defer src="src\js\controller.js"></script>
+</head>
+
+<body>
+	<!-- <h1>Generate Pokemon Decklist Image</h1> -->
+	<div class="wrapper">
+		<div class="input-wrapper">
+			<h2>Paste Decklist</h2>
+			<textarea id="input" class="input-textarea"></textarea>
+		</div>
+		<div class="output-wrapper hide">
+			<div class="decklist-content">
+				<!-- <div class="card">
+					<img src="https://images.pokemontcg.io/">
+					<span class="count">4</span>
+				</div>
+				<div class="card">
+					<img src="https://images.pokemontcg.io/">
+					<span class="count">4</span>
+				</div>
+				<div class="card">
+					<img src="https://images.pokemontcg.io/">
+					<span class="count">4</span>
+				</div>
+				<div class="card">
+					<img src="https://images.pokemontcg.io/">
+					<span class="count">4</span>
+				</div>
+				<div class="card">
+					<img src="https://images.pokemontcg.io/">
+					<span class="count">4</span>
+				</div>
+				<div class="card">
+					<img src="https://images.pokemontcg.io/">
+					<span class="count">4</span>
+				</div>
+				<div class="card">
+					<img src="https://images.pokemontcg.io/">
+					<span class="count">4</span>
+				</div>
+				<div class="card">
+					<img src="https://images.pokemontcg.io/">
+					<span class="count">4</span>
+				</div>
+				<div class="card">
+					<img src="https://images.pokemontcg.io/">
+					<span class="count">4</span>
+				</div>
+				<div class="card">
+					<img src="https://images.pokemontcg.io/">
+					<span class="count">4</span>
+				</div>
+				<div class="card">
+					<img src="https://images.pokemontcg.io/">
+					<span class="count">4</span>
+				</div>
+				<div class="card">
+					<img src="https://images.pokemontcg.io/">
+					<span class="count">4</span>
+				</div>
+				<div class="card">
+					<img src="https://images.pokemontcg.io/">
+					<span class="count">4</span>
+				</div>
+				<div class="card">
+					<img src="https://images.pokemontcg.io/">
+					<span class="count">4</span>
+				</div>
+				<div class="card">
+					<img src="https://images.pokemontcg.io/">
+					<span class="count">4</span>
+				</div>
+				<div class="card">
+					<img src="https://images.pokemontcg.io/">
+					<span class="count">4</span>
+				</div>
+				<div class="card">
+					<img src="https://images.pokemontcg.io/">
+					<span class="count">4</span>
+				</div>
+				<div class="card">
+					<img src="https://images.pokemontcg.io/">
+					<span class="count">4</span>
+				</div>
+				<div class="card">
+					<img src="https://images.pokemontcg.io/">
+					<span class="count">4</span>
+				</div>
+				<div class="card">
+					<img src="https://images.pokemontcg.io/">
+					<span class="count">4</span>
+				</div>
+				<div class="card">
+					<img src="https://images.pokemontcg.io/">
+					<span class="count">4</span>
+				</div>
+				<div class="card">
+					<img src="https://images.pokemontcg.io/">
+					<span class="count">4</span>
+				</div>
+				<div class="card">
+					<img src="https://images.pokemontcg.io/">
+					<span class="count">4</span>
+				</div>
+				<div class="card">
+					<img src="https://images.pokemontcg.io/">
+					<span class="count">4</span>
+				</div>
+				<div class="card">
+					<img src="https://images.pokemontcg.io/">
+					<span class="count">4</span>
+				</div> -->
+			</div>
+		</div>
+	</div>
+	<div class="button-wrapper">
+		<button type="button" id="submit" class="submit-button">Generate</button>
+	</div>
+
+	<!-- <div class="improvements-wrapper">
+		<h3>Future Improvements</h3>
+		<div class="improvements-list">
+			<ul>
+				<li>connect api</li>
+				<li>pull all standard cards</li>
+				<li>build card pool</li>
+				<li>convert decklist into object for api</li>
+				<li>If card is a reprint, search all</li>
+				<li>update sets & cards command</li>
+			</ul>
+		</div>
+	</div> -->
+	<img class="cm-logo" src="src\img\CM_logo.png" \>
+	<div class="footer">
+		<span>Built Using <a href="https://github.com/PokemonTCG/pokemon-tcg-api">PokemonTCG API</a></span>
+		<!-- https://docs.pokemontcg.io/api-reference/sets/search-sets -->
+	</div>
+</body>
+
+</html>
