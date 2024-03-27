@@ -1,0 +1,21 @@
+{
+	"name": "decklist-image",
+	"version": "1.0.0",
+	"description": "",
+	"default": "controller.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "parcel index.html",
+		"build": "parcel build index.html --dist-dir ./dist"
+	},
+	"keywords": [],
+	"author": "Omar Pastrana",
+	"license": "ISC",
+	"devDependencies": {
+		"parcel": "^2.12.0"
+	},
+	"dependencies": {
+		"core-js": "^3.36.1",
+		"regenerator-runtime": "^0.14.1"
+	}
+}
