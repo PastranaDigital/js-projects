@@ -100,13 +100,14 @@ const convertStringToCardObj = (decklist) => {
 	dataArray.forEach((el) => {
 		let arr = el.split(' ');
 		let cardObj = {
-			count: arr.shift(),
+			count: Number(arr.shift()),
 			number: Number(arr.pop()),
 			ptcgoCode: arr.pop(),
 			name: arr.join(' '),
 		};
 		cardObj.set = setMap[cardObj?.ptcgoCode];
-		if (!cardObj.number) return;
+		//? skip Titles or spaces
+		if (isNaN(cardObj.count) || isNaN(cardObj.number)) return;
 		cardArray.push(cardObj);
 	});
 
