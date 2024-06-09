@@ -22,6 +22,7 @@ import * as sitJson from './cardsBySet/SIT.json' assert { type: 'json' };
 import * as sveJson from './cardsBySet/SVE.json' assert { type: 'json' };
 import * as sviJson from './cardsBySet/SVI.json' assert { type: 'json' };
 import * as tefJson from './cardsBySet/TEF.json' assert { type: 'json' };
+import * as twmJson from './cardsBySet/TWM.json' assert { type: 'json' };
 
 export const allCards = [
 	...asrJson.default.data,
@@ -48,4 +49,5 @@ export const allCards = [
 	...sveJson.default.data,
 	...sviJson.default.data,
 	...tefJson.default.data,
+	...twmJson.default.data,
 ];
