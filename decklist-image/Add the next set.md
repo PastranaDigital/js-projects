@@ -41,11 +41,25 @@ Reference the most recent commit to this branch too
 
 ## Test It
 
-1. Click on the "Go live" on bottom utility bar in VSCode
+1. Change directory `cd decklist-image`
 
-2. Paste a decklist with cards from the new set
+1. Run `npm run build`
 
-3. Refresh site and try another decklist
+1. Run `npm run start`
+
+1. Click link to local host
+
+1. Paste a decklist with cards from the new set
+
+1. Refresh site and try another decklist
+
+<br><br>
+
+## Publish It
+
+1. Create a PR to `main` & Merge
+
+<!-- https://ptcg-imggen.netlify.app/ -->
 
 <br><br>
 

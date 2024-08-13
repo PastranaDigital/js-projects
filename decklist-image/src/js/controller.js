@@ -98,6 +98,10 @@ const convertStringToCardObj = (decklist) => {
 	let dataArray = decklist.split('\n');
 	let cardArray = [];
 	dataArray.forEach((el) => {
+		if (el.includes('Pokémon:') || el.includes('Trainer:') || el.includes('Energy:')) {
+			console.log('Skipped: ', JSON.stringify(el));
+			return;
+		}
 		let arr = el.split(' ');
 		let cardObj = {
 			count: Number(arr.shift()),
