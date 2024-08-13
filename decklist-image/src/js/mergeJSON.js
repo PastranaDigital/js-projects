@@ -17,6 +17,7 @@ import * as parJson from './cardsBySet/PAR.json' assert { type: 'json' };
 import * as pgoJson from './cardsBySet/PGO.json' assert { type: 'json' };
 import * as prsvJson from './cardsBySet/PR-SV.json' assert { type: 'json' };
 import * as prswJson from './cardsBySet/PR-SW.json' assert { type: 'json' };
+import * as sfaJson from './cardsBySet/SFA.json' assert { type: 'json' };
 import * as shfJson from './cardsBySet/SHF.json' assert { type: 'json' };
 import * as sitJson from './cardsBySet/SIT.json' assert { type: 'json' };
 import * as sveJson from './cardsBySet/SVE.json' assert { type: 'json' };
@@ -44,6 +45,7 @@ export const allCards = [
 	...pgoJson.default.data,
 	...prsvJson.default.data,
 	...prswJson.default.data,
+	...sfaJson.default.data,
 	...shfJson.default.data,
 	...sitJson.default.data,
 	...sveJson.default.data,
