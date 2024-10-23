@@ -55,6 +55,20 @@ Reference the most recent commit to this branch too
 
 <br><br>
 
+## If list isn't displaying correct cards, then update the controller.js file
+
+1. add the new Key/Value pair to the `setMap`
+
+<br><br>
+
+## If there were new Energies released, then update the SVE.json file
+
+1. Go to https://api.pokemontcg.io/v2/cards?q=set.ptcgoCode:SVE&page=1 to open the JSON
+
+2. Copy the JSON and add only the new ones
+
+<br><br>
+
 ## Publish It
 
 1. Create a PR to `main` & Merge
