@@ -81,11 +81,7 @@ const convertStringToCardObj = (decklist) => {
 		FST: 'swsh8',
 		FUT20: 'fut20',
 		LOR: 'swsh11',
-		MEW: 'sv3pt5',
-		OBF: 'sv3',
 		PAF: 'sv4pt5',
-		PAL: 'sv2',
-		PAR: 'sv4',
 		PGO: 'pgo',
 		SVP: 'svp',
 		SWP: 'swp',
@@ -93,6 +89,10 @@ const convertStringToCardObj = (decklist) => {
 		SIT: 'swsh12',
 		SVE: 'sve',
 		SVI: 'sv1',
+		PAL: 'sv2',
+		OBF: 'sv3',
+		MEW: 'sv3pt5',
+		PAR: 'sv4',
 		TEF: 'sv5',
 	};
 	let dataArray = decklist.split('\n');
