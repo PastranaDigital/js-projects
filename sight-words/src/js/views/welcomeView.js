@@ -96,6 +96,7 @@ class WelcomeView extends View {
 
 					<div class="modal-buttons">
 						<button data-start-value="10" class="start-button">10</button>
+						<button data-start-value="15" class="start-button">MAYA</button>
 						<button data-start-value="20" class="start-button">20</button>
 						<button data-start-value="ALL" class="start-button">ALL</button>
 					</div>
