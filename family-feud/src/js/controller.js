@@ -5,13 +5,16 @@ const questionElement = document.querySelector('.question');
 const answerBlock = document.querySelector('.answer-wrapper');
 const nextQuestionButton = document.querySelector('.next-question');
 const currentQuestion = document.querySelector('.current-question');
+const questionPoints = document.querySelector('.question-points');
 const strikeWrapper = document.querySelector('.strike-wrapper');
 const strikeButton = document.querySelector('.strike');
 
 let currentQuestionIndex = 0;
+let currentQuestionScore = 0;
 let totalQuestions = questions.length;
 
 const populateQuestion = (currentIndex) => {
+	questionPoints.innerHTML = currentQuestionScore;
 	questionElement.innerHTML = questions[currentIndex].question;
 	let allAnswers = [];
 	let columnLimit = Math.ceil(questions[currentIndex].answers.length / 2);
@@ -44,7 +47,10 @@ function revealAnswer(e) {
 			<div class="title">${answer.title}</div>
 			<div class="points">${answer.points}</div>
 	`;
-	const answerBlock = (document.getElementById(e.target.id).innerHTML = newHtml);
+	currentQuestionScore += answer.points;
+	questionPoints.innerHTML = currentQuestionScore;
+	const answerBlock = document.getElementById(e.target.id);
+	answerBlock.innerHTML = newHtml;
 }
 
 const makeQuestionBlocksClickable = () => {
@@ -73,13 +79,25 @@ nextQuestionButton.addEventListener('click', () => {
 	}
 });
 
+let strikeCount = 1;
+
 strikeButton.addEventListener('click', () => {
-	console.log('strike open');
+	console.log('strike: ', strikeCount);
 	// strikeWrapper.style.scale = strikeWrapper.style.scale == 0 ? 1 : 0;
+	let strikes = [];
+	for (let index = 0; index < strikeCount; index++) {
+		strikes.push(`<img src="./src/img/FamilyFeudStrike.png" id="strike-x">`);
+	}
+	strikeWrapper.innerHTML = strikes.map((el) => el).join('');
 	strikeWrapper.style.scale = 1;
+
 	const buzzerSound = document.getElementById('buzzer');
 	buzzerSound.currentTime = 0; //? rewind to beginning
 	buzzerSound.play();
+	strikeCount++;
+	if (strikeCount > 3) {
+		strikeCount = 1;
+	}
 	setTimeout(() => {
 		strikeWrapper.style.scale = 0;
 	}, 1000);
@@ -89,5 +107,4 @@ strikeButton.addEventListener('click', () => {
 // track score
 // type in team name
 // add more questions
-// add music/effects
-// track # of strikes
+// track # of strikes for the team

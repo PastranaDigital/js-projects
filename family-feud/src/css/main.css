@@ -204,7 +204,7 @@ body {
 	justify-content: center;
 	align-items: center;
 	top: 20vh;
-	left: 34vw;
+	width: 99%;
 	scale: 0;
 	transition: all 0.15s ease;
 }
