@@ -35,6 +35,7 @@ teamTwoButton.addEventListener('click', () => {
 
 const populateQuestion = (currentIndex) => {
 	strikeCount = 1;
+	updateStrikeCount();
 	currentQuestionScore = 0;
 	teamOnePoints.innerHTML = teamOneScore;
 	teamTwoPoints.innerHTML = teamTwoScore;
@@ -103,6 +104,23 @@ nextQuestionButton.addEventListener('click', () => {
 	}
 });
 
+const updateStrikeCount = () => {
+	switch (strikeCount) {
+		case 1:
+			strikeButton.innerHTML = '1st Strike';
+			break;
+		case 2:
+			strikeButton.innerHTML = '2nd Strike';
+			break;
+		case 3:
+			strikeButton.innerHTML = '3rd Strike';
+			break;
+		default:
+			strikeButton.innerHTML = '1st Strike';
+			break;
+	}
+};
+
 strikeButton.addEventListener('click', () => {
 	console.log('strike: ', strikeCount);
 	// strikeWrapper.style.scale = strikeWrapper.style.scale == 0 ? 1 : 0;
@@ -123,10 +141,10 @@ strikeButton.addEventListener('click', () => {
 	}
 	setTimeout(() => {
 		strikeWrapper.style.scale = 0;
+		updateStrikeCount();
 	}, 1000);
 });
 
 //TODO
 // type in team name
 // add more questions
-// track # of strikes for the team
