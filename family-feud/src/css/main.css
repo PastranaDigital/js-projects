@@ -228,6 +228,17 @@ body {
 	margin: 0 auto;
 }
 
+.input-wrapper {
+	display: flex;
+	z-index: 20;
+	margin-top: 27rem;
+	gap: 10rem;
+}
+
+.input-wrapper input {
+	width: 16rem;
+}
+
 .overlay {
 	position: fixed;
 	transition: 200ms ease-in-out;

@@ -1,6 +1,10 @@
 import { questions } from './questions.js';
 
 const openingElement = document.querySelector('.opening');
+const beginButton = document.querySelector('.begin-button');
+const teamOneInput = document.getElementById('team-one-input');
+const teamTwoInput = document.getElementById('team-two-input');
+
 const questionElement = document.querySelector('.question');
 const answerBlock = document.querySelector('.answer-wrapper');
 const nextQuestionButton = document.querySelector('.next-question');
@@ -20,8 +24,23 @@ let currentQuestionScore;
 let totalQuestions = questions.length;
 let teamOneScore = 0;
 let teamTwoScore = 0;
+let teamOneName;
+let teamTwoName;
 
 let strikeCount;
+
+// listen for input to Team Names
+teamOneInput.addEventListener('change', (event) => {
+	console.log('event.target.value: ', event.target.value);
+	teamOneName = event.target.value;
+});
+
+teamTwoInput.addEventListener('change', (event) => {
+	console.log('event.target.value: ', event.target.value);
+	teamTwoName = event.target.value;
+});
+
+// listen for click on Team Names to add score
 
 teamOneButton.addEventListener('click', () => {
 	teamOneScore += currentQuestionScore;
@@ -85,11 +104,13 @@ const makeQuestionBlocksClickable = () => {
 
 // ---------------- OPENING ----------------------------------
 
-openingElement.addEventListener('click', () => {
+beginButton.addEventListener('click', () => {
 	openingElement.remove();
 	console.log(currentQuestionIndex, totalQuestions);
 	populateQuestion(currentQuestionIndex);
 	makeQuestionBlocksClickable();
+	teamOneButton.innerHTML = teamOneName || 'Team One';
+	teamTwoButton.innerHTML = teamTwoName || 'Team Two';
 });
 
 nextQuestionButton.addEventListener('click', () => {
@@ -146,5 +167,4 @@ strikeButton.addEventListener('click', () => {
 });
 
 //TODO
-// type in team name
 // add more questions
