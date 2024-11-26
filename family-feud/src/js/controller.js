@@ -5,15 +5,39 @@ const questionElement = document.querySelector('.question');
 const answerBlock = document.querySelector('.answer-wrapper');
 const nextQuestionButton = document.querySelector('.next-question');
 const currentQuestion = document.querySelector('.current-question');
+
+const teamOnePoints = document.querySelector('.team-one');
+const teamTwoPoints = document.querySelector('.team-two');
+const teamOneButton = document.getElementById('team-one-button');
+const teamTwoButton = document.getElementById('team-two-button');
+
 const questionPoints = document.querySelector('.question-points');
 const strikeWrapper = document.querySelector('.strike-wrapper');
 const strikeButton = document.querySelector('.strike');
 
 let currentQuestionIndex = 0;
-let currentQuestionScore = 0;
+let currentQuestionScore;
 let totalQuestions = questions.length;
+let teamOneScore = 0;
+let teamTwoScore = 0;
+
+let strikeCount;
+
+teamOneButton.addEventListener('click', () => {
+	teamOneScore += currentQuestionScore;
+	teamOnePoints.innerHTML = teamOneScore;
+});
+
+teamTwoButton.addEventListener('click', () => {
+	teamTwoScore += currentQuestionScore;
+	teamTwoPoints.innerHTML = teamTwoScore;
+});
 
 const populateQuestion = (currentIndex) => {
+	strikeCount = 1;
+	currentQuestionScore = 0;
+	teamOnePoints.innerHTML = teamOneScore;
+	teamTwoPoints.innerHTML = teamTwoScore;
 	questionPoints.innerHTML = currentQuestionScore;
 	questionElement.innerHTML = questions[currentIndex].question;
 	let allAnswers = [];
@@ -79,8 +103,6 @@ nextQuestionButton.addEventListener('click', () => {
 	}
 });
 
-let strikeCount = 1;
-
 strikeButton.addEventListener('click', () => {
 	console.log('strike: ', strikeCount);
 	// strikeWrapper.style.scale = strikeWrapper.style.scale == 0 ? 1 : 0;
@@ -93,6 +115,7 @@ strikeButton.addEventListener('click', () => {
 
 	const buzzerSound = document.getElementById('buzzer');
 	buzzerSound.currentTime = 0; //? rewind to beginning
+	buzzerSound.volume = 0.25;
 	buzzerSound.play();
 	strikeCount++;
 	if (strikeCount > 3) {
@@ -104,7 +127,6 @@ strikeButton.addEventListener('click', () => {
 });
 
 //TODO
-// track score
 // type in team name
 // add more questions
 // track # of strikes for the team
