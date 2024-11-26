@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Family Feud</title>
+	<link rel="stylesheet" href="./src/css/main.css" />
+	<script type="module" defer src="src/js/controller.js"></script>
+</head>
+
+<body>
+	<div class="opening active">
+		<img src="./src/img/FamilyFeudMain.png" alt="Main image" class="modal" id="main-image">
+		<div class="overlay"></div>
+	</div>
+	<div class="main-wrapper">
+		<div class="main-content">
+			<div class="score-wrapper">
+				<div class="team-wrapper">
+					<div class="score team-one">00</div>
+					<span class="team-name">Team One</span>
+				</div>
+				<div class="score question-points">87</div>
+				<div class="team-wrapper">
+					<div class="score team-two">40</div>
+					<span class="team-name">Team Two</span>
+				</div>
+			</div>
+			<!-- <div class="current-question"></div> -->
+			<div class="question-wrapper">
+				<div class="question"></div>
+			</div>
+			<div class="answer-wrapper"></div>
+			<div class="navigation-wrapper">
+				<div class="back-question button green">Back</div>
+				<div class="strike button">X</div>
+				<div class="next-question button green">Next</div>
+			</div>
+		</div>
+		<div class="background-wrapper">
+			<img src="./src/img/FamilyFeudQuestion.png">
+		</div>
+	</div>
+	<div class="strike-wrapper">
+		<img src="./src/img/FamilyFeudStrike.png" id="strike-x">
+	</div>
+	<audio id="buzzer">
+		<source src="./src/sounds/buzzer.mp3" type="audio/mpeg">
+	</audio>
+	<audio id="ding">
+		<source src="./src/sounds/ding.mp3" type="audio/mpeg">
+	</audio>
+</body>
+
+</html>
