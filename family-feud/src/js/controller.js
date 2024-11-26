@@ -26,6 +26,7 @@ let teamOneScore = 0;
 let teamTwoScore = 0;
 let teamOneName;
 let teamTwoName;
+let gameHasBegun = false;
 
 let strikeCount;
 
@@ -111,6 +112,7 @@ beginButton.addEventListener('click', () => {
 	makeQuestionBlocksClickable();
 	teamOneButton.innerHTML = teamOneName || 'Team One';
 	teamTwoButton.innerHTML = teamTwoName || 'Team Two';
+	gameHasBegun = true;
 });
 
 nextQuestionButton.addEventListener('click', () => {
@@ -142,6 +144,28 @@ const updateStrikeCount = () => {
 	}
 };
 
+const playBuzzer = () => {
+	const buzzerSound = document.getElementById('buzzer');
+	buzzerSound.currentTime = 0; //? rewind to beginning
+	buzzerSound.volume = 0.15;
+	buzzerSound.play();
+};
+
+document.addEventListener('keypress', (event) => {
+	console.log('event.keyCode: ', event.keyCode);
+	if (event.keyCode == 120 && gameHasBegun) {
+		playBuzzer();
+		// show 1 X
+		strikeWrapper.innerHTML = `<img src="./src/img/FamilyFeudStrike.png" id="strike-x">`;
+		strikeWrapper.style.scale = 1;
+
+		setTimeout(() => {
+			strikeWrapper.style.scale = 0;
+			updateStrikeCount();
+		}, 1000);
+	}
+});
+
 strikeButton.addEventListener('click', () => {
 	console.log('strike: ', strikeCount);
 	// strikeWrapper.style.scale = strikeWrapper.style.scale == 0 ? 1 : 0;
@@ -152,10 +176,7 @@ strikeButton.addEventListener('click', () => {
 	strikeWrapper.innerHTML = strikes.map((el) => el).join('');
 	strikeWrapper.style.scale = 1;
 
-	const buzzerSound = document.getElementById('buzzer');
-	buzzerSound.currentTime = 0; //? rewind to beginning
-	buzzerSound.volume = 0.25;
-	buzzerSound.play();
+	playBuzzer();
 	strikeCount++;
 	if (strikeCount > 3) {
 		strikeCount = 1;
@@ -168,3 +189,4 @@ strikeButton.addEventListener('click', () => {
 
 //TODO
 // add more questions
+// back button needs to be a reveal answers button?
