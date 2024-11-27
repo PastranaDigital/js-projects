@@ -20,7 +20,7 @@ export const questions = [
 			{ title: 'Mr. Mime', points: 15 },
 			{ title: 'Drifloon', points: 10 },
 			{ title: 'Audino', points: 9 },
-			{ title: 'Bulbasuar', points: 5 },
+			{ title: 'Bulbasaur', points: 5 },
 			{ title: 'Gardevoir', points: 4 },
 			{ title: 'Drampa', points: 4 },
 		],
