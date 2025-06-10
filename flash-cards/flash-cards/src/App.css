@@ -14,7 +14,7 @@ body {
 
 p {
 	font-size: 1.5rem;
-	color: #181818;
+	color: #1c4f6c;
 }
 
 .container {
@@ -29,11 +29,11 @@ p {
 	/* position: absolute; */
 	top: 50%;
 	left: 50%;
-	min-width: 500px;
+	min-width: 600px;
 	height: 300px;
 	/* margin: -150px; */
 	/* float: left; */
-	perspective: 500px;
+	perspective: 1500px;
 }
 
 .content {
@@ -62,7 +62,7 @@ p {
 	line-height: 300px;
 	color: #1c4f6c;
 	text-align: center;
-	font-size: 60px;
+	font-size: 5rem;
 	border-radius: 1rem;
 	backface-visibility: hidden;
 }

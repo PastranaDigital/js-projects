@@ -27,18 +27,18 @@ function App() {
 								className='path check'
 								fill='none'
 								stroke='#ffffff'
-								stroke-width='6'
-								stroke-linecap='round'
-								stroke-miterlimit='10'
+								strokeWidth='6'
+								strokeLinecap='round'
+								strokeMiterlimit='10'
 								points='8,8 24,24'
 							></polyline>
 							<polyline
 								className='path check'
 								fill='none'
 								stroke='#ffffff'
-								stroke-width='6'
-								stroke-linecap='round'
-								stroke-miterlimit='10'
+								strokeWidth='6'
+								strokeLinecap='round'
+								strokeMiterlimit='10'
 								points='8,24 24,8'
 							></polyline>
 						</svg>
@@ -52,9 +52,9 @@ function App() {
 								className='path check'
 								fill='none'
 								stroke='#ffffff'
-								stroke-width='6'
-								stroke-linecap='round'
-								stroke-miterlimit='10'
+								strokeWidth='6'
+								strokeLinecap='round'
+								strokeMiterlimit='10'
 								points='25,10 13,22 7.5,17 '
 							></polyline>
 						</svg>
